@@ -76,7 +76,7 @@ function SignIn() {
                 Continue with Google
               </button>
               <p className="text-center mt-4 text-sm text-[#7d7d7d]">
-                Don’t have an Account? <Link to="/" className="text-black"><strong>Register</strong></Link>
+                Don’t have an Account? <Link to="/signup" className="text-black"><strong>Register</strong></Link>
               </p>
             </div>
           </div>

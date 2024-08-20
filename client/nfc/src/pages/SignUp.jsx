@@ -1,14 +1,8 @@
-import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import Navi from "../components/Navbar.jsx";
-// import StaticFooter from '../components/Staticfooter.jsx';
-import SignIn from "./SignIn.jsx";
-
-
+import { Link } from "react-router-dom";
 
 function Signup() {
-
- 
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -16,6 +10,8 @@ function Signup() {
     password: '',
     confirmPassword: ''
   });
+
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -27,21 +23,33 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can add your form submission logic
+
+    // Regular expression to check for at least one special character, one uppercase letter, and one numeric digit
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match.');
+      return;
+    }
+
+    if (!passwordRegex.test(formData.password)) {
+      setError('Password must be Strong.');
+      return;
+    }
+
+    setError('');
+    // Form submission logic (e.g., API call)
     console.log('Form submitted:', formData);
   };
 
   const handleGoogleSignIn = () => {
-    // Placeholder function for Google Sign-In
-    // You can add the logic for Google API integration here later
     console.log('Google Sign-In clicked');
   };
 
   return (
     <>
-    {/* <Navi/> */}
+      <Navi />
       <div className="pd-12 bg-cover w-[100%]" style={{ backgroundImage: 'url("./src/assets/Backimage.jpg")' }}>
-        
         <div className="flex justify-center pb-10 pt-[6rem]">
           <div className="bg-[#fefefe] w-120 p-[0.9rem] rounded-2xl shadow-[rgba(0,0,0,0.35)_0px_5px_15px]">
             <div className="bg-[#ffffff] p-5 border-[1px] border-black rounded-2xl shadow-sm">
@@ -110,6 +118,7 @@ function Signup() {
                     required
                   />
                 </div>
+                {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
                 <button type="submit" className="w-full mt-4 bg-black text-white p-2 rounded-md">Register</button>
               </form>
               <button
@@ -120,13 +129,13 @@ function Signup() {
                 Continue with Google
               </button>
               <p className="text-center mt-4 text-sm text-[#7d7d7d]">
-                Already have an Account? <Link to="/SignIn" className="text-black"><strong>Sign In</strong></Link>
+                Already have an Account? <Link to="/signin" className="text-black"><strong>Sign In</strong></Link>
               </p>
             </div>
           </div>
         </div>
       </div>
-      {/* <div className=""><StaticFooter/></div> */}
+      {/* <StaticFooter/> */}
     </>
   );
 }
