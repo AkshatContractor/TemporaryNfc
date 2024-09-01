@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ProdReview from './ProdReview'; // Import the ProdReview component
+import ProdSpec from './ProdSpecification';
 
 const ProductInformation = () => {
      const [activeTab, setActiveTab] = useState('description');
@@ -85,53 +87,53 @@ const ProductInformation = () => {
                               )}
 
                               {activeTab === 'specification' && (
-                                   <div className="flex-1">
-                                        {/* <h2 className="text-xl font-semibold text-gray-900">Specification</h2> */}
-                                        {/* Add your specification details here */}
-                                        <div className="w-full px-4 py-6">
-                                             {/* <h2 className="text-xl font-semibold text-gray-900">Specification</h2> */}
-                                             <table className="w-[1200px] bg-white rounded-lg border border-gray-200">
-                                                  <thead>
-                                                       <tr>
-                                                            <th className="text-left px-6 py-3 bg-gray-100 text-gray-700 font-bold border-r-[1px]">Brand</th>
-                                                            <th className="text-left px-6 py-3 bg-gray-100 text-gray-700 font-bold border-r-[1px]">CardWave</th>
-                                                       </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                       <tr className="border">
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">Manufacturer</td>
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">CardWave</td>
-                                                       </tr>
-                                                       <tr className="border-t bg-gray-50">
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">Country of Origin</td>
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">India</td>
-                                                       </tr>
-                                                       <tr className="border-t">
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">Material</td>
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">PVC</td>
-                                                       </tr>
-                                                       <tr className="border-t bg-gray-50">
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">Use Case</td>
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">Smart NFC Business, Visiting and ID Cards</td>
-                                                       </tr>
-                                                       <tr className="border-t">
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">Dimension</td>
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">8.56 x 5.4 x 0.1 cm</td>
-                                                       </tr>
-                                                       <tr className="border-t bg-gray-50">
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">Item Weight</td>
-                                                            <td className="px-6 py-4 text-gray-600 border-r-[1px]">20 g</td>
-                                                       </tr>
-                                                  </tbody>
-                                             </table>
-                                        </div>
+
+                                   <div className="flex-1" id="#review">
+                                        <ProdSpec /> {/* Use the ProdReview component */}
                                    </div>
+                                   // <div className="flex-1">
+                                   //      <div className="w-full px-4 py-6">
+                                   //           <table className="w-[1200px] bg-white rounded-lg border border-gray-200">
+                                   //                <thead>
+                                   //                     <tr>
+                                   //                          <th className="text-left px-6 py-3 bg-gray-100 text-gray-700 font-bold border-r-[1px]">Brand</th>
+                                   //                          <th className="text-left px-6 py-3 bg-gray-100 text-gray-700 font-bold border-r-[1px]">CardWave</th>
+                                   //                     </tr>
+                                   //                </thead>
+                                   //                <tbody>
+                                   //                     <tr className="border">
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">Manufacturer</td>
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">CardWave</td>
+                                   //                     </tr>
+                                   //                     <tr className="border-t bg-gray-50">
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">Country of Origin</td>
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">India</td>
+                                   //                     </tr>
+                                   //                     <tr className="border-t">
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">Material</td>
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">PVC</td>
+                                   //                     </tr>
+                                   //                     <tr className="border-t bg-gray-50">
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">Use Case</td>
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">Smart NFC Business, Visiting and ID Cards</td>
+                                   //                     </tr>
+                                   //                     <tr className="border-t">
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">Dimension</td>
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">8.56 x 5.4 x 0.1 cm</td>
+                                   //                     </tr>
+                                   //                     <tr className="border-t bg-gray-50">
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">Item Weight</td>
+                                   //                          <td className="px-6 py-4 text-gray-600 border-r-[1px]">20 g</td>
+                                   //                     </tr>
+                                   //                </tbody>
+                                   //           </table>
+                                   //      </div>
+                                   // </div>
                               )}
 
                               {activeTab === 'review' && (
                                    <div className="flex-1" id="#review">
-                                        <h2 className="text-xl font-semibold text-gray-900">Review</h2>
-                                        {/* Add your review details here */}
+                                        <ProdReview /> {/* Use the ProdReview component */}
                                    </div>
                               )}
                          </section>
